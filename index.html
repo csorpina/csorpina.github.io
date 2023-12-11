@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carl S. Orpina</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #3498db, #2ecc71); /* Blue to green gradient */
+      color: #333; /* Dark text color */
+    }
+
+    header {
+      background: #555; /* Darker background for header */
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin: 0;
+      color: #fff; /* Light text color */
+    }
+
+    section {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      margin: 20px;
+      color: #333;
+    }
+
+    label, input, select, button {
+      display: block;
+      margin: 10px 0;
+    }
+
+    button {
+      background: #2ecc71; /* Green button color */
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #fff; /* White borders */
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <!-- Your existing HTML content -->
+</body>
+</html>  <header>
+    <h1>Welcome to my Website!</h1>
+    <h2>John Kairos M. Amoguis</h2>
+    <p>Introduction to Computing</p>
+  </header>
+
+  <section>
+    <h2>Income Tax Calculator</h2>
+    <label for="netIncome">Enter Net Taxable Income:</label>
+    <input type="number" id="netIncome" placeholder="Enter income in PHP">
+    <button onclick="calculateTax()">Calculate Tax</button>
+    <p id="incomeTaxResult"></p>
+  </section>
+
+  <section>
+    <h2>Employee Payroll Management</h2>
+    <label for="employeeName">Employee Name:</label>
+    <input type="text" id="employeeName">
+    <label for="daysWorked">Days Worked:</label>
+    <input type="number" id="daysWorked">
+    <label for="dailyRate">Daily Rate:</label>
+    <input type="number" id="dailyRate">
+    <label for="deductionAmount">Deduction Amount:</label>
+    <input type="number" id="deductionAmount">
+    <button onclick="addEmployee()">Add Employee</button>
+    <button onclick="deleteEmployee()">Delete Employee</button>
+    <table id="payrollTable">
+      <tr>
+        <th>No.</th>
+        <th>Employee Name</th>
+        <th>Days Worked</th>
+        <th>Daily Rate</th>
+        <th>Gross Pay</th>
+        <th>Deduction Amount</th>
+        <th>Net Pay</th>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Unit Converter</h2>
+    <label for="conversionType">Select Conversion Type:</label>
+    <select id="conversionType">
+      <option value="1">Fahrenheit to Celsius</option>
+      <option value="2">Celsius to Fahrenheit</option>
+      <option value="3">Meters to Feet</option>
+      <option value="4">Feet to Meters</option>
+    </select>
+    <br>
+    <label for="inputValue">Enter Value:</label>
+    <input type="number" id="inputValue">
+    <br>
+    <button onclick="convert()">Convert</button>
+    <p id="conversionResult"></p>
+  </section>
+
+  <section>
+    <h2>Nth Factorial, Sum, and Average Calculator</h2>
+    <label for="numberInput">Enter an Integer (n):</label>
+    <input type="number" id="numberInput">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+    <p id="resultFactorial"></p>
+    <p id="resultSum"></p>
+    <p id="resultAverage"></p>
+  </section>
+
+  <script>
+    // Income Tax Calculator
+    function calculateTax() {
+      const netIncome = parseFloat(document.getElementById('netIncome').value);
+      // Implement your income tax calculation logic here
+      // ...
+
+      document.getElementById('incomeTaxResult').innerHTML = Income Tax: PHP ${calculatedTax.toFixed(2)};
+    }
+
+    // Employee Payroll Management
+    let payrollList = [];
+
+    function addEmployee() {
+      // Implement your add employee logic here
+      // ...
+
+      updatePayrollTable();
+    }
+
+    function deleteEmployee() {
+      // Implement your delete employee logic here
+      // ...
+
+      updatePayrollTable();
+    }
+
+    function updatePayrollTable() {
+      const table = document.getElementById('payrollTable');
+      table.innerHTML = '<tr><th>No.</th><th>Employee Name</th><th>Days Worked</th><th>Daily Rate</th><th>Gross Pay</th><th>Deduction Amount</th><th>Net Pay</th></tr>';
+
+      for (let i = 0; i < payrollList.length; i++) {
+        const row = payrollList[i];
+        const newRow = <tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td><td>${row[4]}</td><td>${row[5]}</td><td>${row[6]}</td></tr>;
+        table.innerHTML += newRow;
+      }
+    }
+
+    // Unit Converter
+    function convert() {
+      // Implement your unit conversion logic here
+      // ...
+
+      document.getElementById('conversionResult').innerHTML = Result: ${convertedValue.toFixed(2)};
+    }
+
+    // Nth Factorial, Sum, and Average Calculator
+    function calculate() {
+      const n = parseInt(document.getElementById('numberInput').value);
+
+      if (isNaN(n) || n < 0) {
+        alert('Please enter a non-negative integer.');
+        return;
+      }
+
+      let factorial = 1;
+      let i = 1;
+      while (i <= n) {
+        factorial *= i;
+        i++;
+      }
+
+      let sum = 0;
+      let j = 1;
+      do {
+        sum += j;
+        j++;
+      } while (j <= n);
+
+      let total = 0;
+      for (let k = 1; k <= n; k++) {
+        total += k;
+      }
+      const average = total / n;
+
+      document.getElementById('resultFactorial').innerHTML = Factorial(${n}): ${factorial};
+      document.getElementById('resultSum').innerHTML = Sum of the first ${n} numbers: ${sum};
+      document.getElementById('resultAverage').innerHTML = Average of the first ${n} numbers: ${average.toFixed(2)};
+    }
+  </script>
+</body>
+</html>
